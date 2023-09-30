@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-myorderadmin-dev-123448-authRole",
+      "UnauthRoleArn": "arn:aws:iam::013893537323:role/amplify-myorderadmin-dev-123448-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::013893537323:role/amplify-myorderadmin-dev-123448-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-myorderadmin-dev-123448-deployment",
+      "UnauthRoleName": "amplify-myorderadmin-dev-123448-unauthRole",
+      "StackName": "amplify-myorderadmin-dev-123448",
+      "StackId": "arn:aws:cloudformation:us-east-1:013893537323:stack/amplify-myorderadmin-dev-123448/e58c2180-5fa6-11ee-a322-0aceee400fdf",
+      "AmplifyAppId": "d1frovkufs3x3k"
+    }
+  }
+}
