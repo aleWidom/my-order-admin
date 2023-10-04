@@ -1,6 +1,16 @@
 import axios from 'axios';
 
 
+async function fetchOrderItem() {
+	try {
+		const response = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?itemPeopleInTableJoin`);
+		return response.data;
+
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 async function fetchTablesActive() {
 	try {
 		const response = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?active`);
@@ -10,15 +20,6 @@ async function fetchTablesActive() {
 	}
 }
 
-
-async function fetchItemPeopleInTable(id_peopleInTable: string) {
-	try {
-		const fetchItemPeopleInTable = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items?fetchItemPeopleInTable=${id_peopleInTable}`);
-		return fetchItemPeopleInTable.data;
-	} catch (err) {
-		console.log(err);
-	}
-}
 
 async function makeDelivered(idItemPeopleInTable: string | undefined) {
 	try {
@@ -54,8 +55,8 @@ async function updateTableNumberNotCall(tableID: string | undefined) {
 
 
 export {
+	fetchOrderItem,
 	fetchTablesActive,
-	fetchItemPeopleInTable,
 	makeDelivered,
 	updateTableNumberDesactive,
 	updateTableNumberNotCall

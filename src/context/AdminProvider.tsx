@@ -1,7 +1,7 @@
 "use client"; 
 import { useState } from 'react';
 import { AdminContext } from "./AdminContext";
-import { TableRestaurant,PlateSelected } from '../interfaces/interfaces';
+import { TableRestaurant, OrdersInProcess  } from '../interfaces/interfaces';
 
 
 interface Props {
@@ -13,7 +13,7 @@ export const AdminProvider = ({ children }: Props) => {
 /* 
 	const [tablesCallRestaurant, setTablesCallRestaurant] = useState<TableRestaurant[]>([]); */
 
-	const [orderItem, setOrderItem] = useState<PlateSelected []>([]);
+	const [orderItem, setOrderItem] = useState<OrdersInProcess[]>([]);
 
 	return (
 		<AdminContext.Provider

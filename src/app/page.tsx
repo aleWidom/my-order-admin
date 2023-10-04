@@ -5,28 +5,27 @@ import {
   AdminTablesActives,
 } from "@/components/index";
 import { AdminContext } from "@/context/AdminContext";
-import { fetchItemPeopleInTable, fetchTablesActive } from "@/services/admin";
+import { fetchOrderItem, fetchTablesActive } from "@/services/admin";
 
 const HomePage = () => {
 
-  const { tablesRestaurantActives, orderItem, setTablesRestaurantActives, setOrderItem } = useContext(AdminContext);
+  const { orderItem, setTablesRestaurantActives, setOrderItem } = useContext(AdminContext);
 
   useEffect(() => {
     //Busco todas las ordenes que no esten entregadas
-    fetchItemPeopleInTable("07d29644-4582-444c-9459-5d59705dfef0")
+    fetchOrderItem()
       .then((data) => {
-        if (data) {
+        if (data !== undefined) {
           setOrderItem(data);
         }
       })
       .catch((e) => {
         console.log(e);
       });
-    console.log("useEffect")
     //Busco las mesas activas
     fetchTablesActive()
       .then((data) => {
-        if (data) {
+        if (data != undefined) {
           setTablesRestaurantActives(data);
         }
       })
