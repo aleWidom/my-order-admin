@@ -36,8 +36,6 @@ const HomePage = () => {
   }, []);
 
 
-  console.log(orderItem)
-
   return (
     <>
       <AdminOrdersActives />

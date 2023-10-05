@@ -36,7 +36,7 @@ export const AdminTablesActives = () => {
     <>
       <div className={styles.container}>
         <h1 className={styles.header}>Mesas Activas</h1>
-        {tablesRestaurantActives.length > 0 ?
+        {tablesRestaurantActives?.length > 0 ?
           tablesRestaurantActives.map((table) => (
             <div key={table.table_number} className={styles.containerTable}>
               <h4 className={styles.numberTable}>Mesa: {table.table_number}</h4>
@@ -44,7 +44,7 @@ export const AdminTablesActives = () => {
               <button onClick={handleDesactivate(table.TableID)}>Desactivar mesa</button>
             </div>
           )) :
-          'No hay llamadas de ninguna mesa en este momento.'}
+          <p>No hay llamadas de ninguna mesa en este momento.</p>}
       </div>
    {/*    {modalInfo.section === 'admin' && <ModalInfo />} */}
     </>

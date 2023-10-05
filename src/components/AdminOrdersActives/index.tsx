@@ -26,13 +26,11 @@ export const AdminOrdersActives = () => {
             });
     }
 
-    console.log(orderItem)
-
     return (
         <>
             <h1 className={styles.header}>Ordenes sin entregar</h1>
             <div className={styles.container}>
-                {orderItem.length > 0 ?
+                {orderItem?.length > 0 ?
                     orderItem.map((e, i) => (
                         <div key={i}>
                             <h4 className={styles.table}>Table: {e.numberTable}</h4>
@@ -41,7 +39,7 @@ export const AdminOrdersActives = () => {
                             <button onClick={handleClickDelivered(e)}>Marcar como entregado.</button>
                         </div>
                     )) :
-                    'No hay ordenes pendientes de ninguna mesa en este momento.'}
+                    <p>No hay ordenes pendientes de ninguna mesa en este momento.</p>}
             </div>
         </>
     )
