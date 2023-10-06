@@ -5,7 +5,12 @@ export interface TableRestaurant {
 	table_call: string;
 }
 
-export interface OrdersInProcess {
+export interface OrderInProcess {
+	numberTable: string;
+	detail: ItemMenuInProcess[]
+} 
+
+export interface ItemMenuInProcess {
 	ItemPeopleInTableID: string;
 	orderNumberID: string;
 	numberTable: string;

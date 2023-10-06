@@ -1,21 +1,37 @@
-"use client";
-import { useContext, useEffect } from "react";
-import {
-  AdminOrdersActives,
-  AdminTablesActives,
-} from "@/components/index";
-import { AdminContext } from "@/context/AdminContext";
-import { fetchOrderItem, fetchTablesActive } from "@/services/admin";
+"use client"
+import { useContext } from 'react'
+import { AdminContext } from '@/context/AdminContext'
+import { ItemMenuInProcess, OrderInProcess } from '@/interfaces/interfaces'
+import { OrderItemView } from './OrderItemView'
+import { fetchOrderItem, makeDelivered } from '@/services'
 
-const HomePage = () => {
+interface OrderItemProps {
+    itemOrder: ItemMenuInProcess
+}
 
-  const {setTablesRestaurantActives, setAllOrders } = useContext(AdminContext);
+export const OrderItem = ({itemOrder}: OrderItemProps) => {
 
-  useEffect(() => {
-    //Busco todas las ordenes que no esten entregadas
+  const {setAllOrders}= useContext(AdminContext)
+
+  const handleClickDelivered = /* (orderProduct: OrderInProcess) => */ () => {
+    console.log("handleCLick")
+    //seteo producto como entregado
+    makeDelivered()
+      .then((response) => {
+        if(response !== undefined) {
+          console.log(response)
+          console.log("oooooa")
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("errrror")
+      });
+
+       //vuelvo a buscar las ordenes que están pedidas pero no entregadas
     fetchOrderItem()
-      .then((data) => {
-       if(data !== undefined) {
+    .then((data)=> {
+      if(data !== undefined) {
         const dataOrder = [
           {
           numberTable: "026",
@@ -64,37 +80,35 @@ const HomePage = () => {
             ]
             }
       ]
-
       console.log(JSON.stringify(dataOrder))
-        setAllOrders(dataOrder);
-       }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-      
-    //Busco las mesas activas
-    fetchTablesActive()
-      .then((data) => {
-        if (data != undefined) {
-          setTablesRestaurantActives(data);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      setAllOrders(dataOrder); 
+      }
+    })
+    .catch((err)=> {
+      console.log(err)
+    })  
 
 
+
+
+  }
 
 
   return (
-    <>
-      <AdminOrdersActives />
-      <AdminTablesActives />
-    </>
-  );
-};
+    <OrderItemView itemOrder={itemOrder} handleClickDelivered={handleClickDelivered}/>
+  )
+}
 
-export default HomePage;
+
+
+  
+    
+
+
+   
+
+
+
+
+   
+

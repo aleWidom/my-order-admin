@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TableRestaurant, OrdersInProcess } from "../interfaces/interfaces";
+import { TableRestaurant, OrderInProcess} from "../interfaces/interfaces";
 
 
 interface ContextProps {
@@ -7,8 +7,8 @@ interface ContextProps {
 	setTablesRestaurantActives: (description: TableRestaurant[]) => void;
 /* 	tablesCallRestaurant: TableRestaurant[];
 	setTablesCallRestaurant: (description: TableRestaurant[]) => void; */
-	orderItem: OrdersInProcess  [];
-	setOrderItem: (description: OrdersInProcess []) => void;
+	allOrders:  OrderInProcess[];
+	setAllOrders: (description:  OrderInProcess[]) => void;
 }
 
 export const AdminContext = createContext({} as ContextProps);
