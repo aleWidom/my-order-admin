@@ -13,8 +13,7 @@ export const OrderItem = ({itemOrder}: OrderItemProps) => {
 
   const {setAllOrders}= useContext(AdminContext)
 
-  const handleClickDelivered = /* (orderProduct: OrderInProcess) => */ () => {
-    console.log("handleCLick")
+  const handleClickDelivered = () => {
     //seteo producto como entregado
     makeDelivered()
       .then((response) => {

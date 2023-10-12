@@ -7,6 +7,7 @@ interface OrderViewProps {
 }
 
 export const OrderView = ({ order }: OrderViewProps) => {
+
   return (
     <div className={styles.containerOrder}>
       <h2>{order.numberTable}</h2>

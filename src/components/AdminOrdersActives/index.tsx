@@ -1,13 +1,12 @@
+"use client"
 import { useContext } from "react";
 import { AdminContext } from "@/context/AdminContext";
-import styles from './AdminOrdersActives.module.scss'
 import { Order } from "../Order";
+import styles from './AdminOrdersActives.module.scss'
 
 export const AdminOrdersActives = () => {
 
     const { allOrders } = useContext(AdminContext);
-
-   
 
     return (
         <>
@@ -23,7 +22,3 @@ export const AdminOrdersActives = () => {
         </>
     )
 }
-
-
-
-/*  */

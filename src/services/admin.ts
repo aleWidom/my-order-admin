@@ -23,17 +23,7 @@ async function fetchTablesActive() {
 
 async function makeDelivered(/* idItemPeopleInTable: string | undefined */) {
 	try {
-		const  makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items/?makeDelivered`, 
-		JSON.stringify({
-			title: "Oaaa",
-			name: "Pancrasio"
-		}),
-		{
-			headers: {
-				"Content-Type": "application/json",
-        }
-		}
-	);
+		const  makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items?makeDelivered`);
 		return  makeDelivered;
 	} catch (err) {
 		console.log(err);
