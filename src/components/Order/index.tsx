@@ -7,7 +7,6 @@ interface OrderProps  {
 }
 
 export const Order= ({order}: OrderProps) => { 
-
   return (
     <OrderView order={order}/>
   )

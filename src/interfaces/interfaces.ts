@@ -6,17 +6,17 @@ export interface TableRestaurant {
 }
 
 export interface OrderInProcess {
+	orderNumberID?: string;
 	numberTable: string;
-	detail: ItemMenuInProcess[]
+	id_peopleInTable?: string;
+	date?: string;
+	details: ItemMenuInProcess[];
 } 
 
 export interface ItemMenuInProcess {
-	ItemPeopleInTableID: string;
-	orderNumberID: string;
-	numberTable: string;
-	title: string;
-	quantity: string;
-	state: string;
 	id_item: string;
+	quantity: string;
+	ItemPeopleInTableID: string;
+    title: string; 
 }
 

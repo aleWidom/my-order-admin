@@ -1,6 +1,14 @@
+@import '../../styles/config';
+
 .containerOrder {
     border: solid;
     padding: 1rem;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin: 0.5rem;
+}
+
+.table {
+    background-color: $color-secondary;
+    color: $color-primary;
+    padding: 0.5rem;
 }

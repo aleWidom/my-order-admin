@@ -3,7 +3,7 @@ import axios from 'axios';
 
 async function fetchOrderItem() {
 	try {
-		const response = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?itemPeopleInTableJoin`);
+		const response = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?allOrdersInProcess`);
 		return response.data;
 
 	} catch (err) {
@@ -21,9 +21,9 @@ async function fetchTablesActive() {
 }
 
 
-async function makeDelivered(/* idItemPeopleInTable: string | undefined */) {
+async function makeDelivered(idItemPeopleInTable: string ) {
 	try {
-		const  makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items?makeDelivered`);
+		const  makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items/${idItemPeopleInTable}?makeDelivered`);
 		return  makeDelivered;
 	} catch (err) {
 		console.log(err);

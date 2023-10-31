@@ -10,7 +10,7 @@ export const AdminOrdersActives = () => {
 
     return (
         <>
-            <h1 className={styles.header}>Ordenes sin entregar</h1>
+            <h1 className={styles.header}>Ordenes Recibidas</h1>
             <div className={styles.container}>
                 {allOrders?.length > 0 ? 
                  allOrders.map((order, i)=> (
