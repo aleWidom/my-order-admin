@@ -21,10 +21,11 @@ async function fetchTablesActive() {
 }
 
 
-async function makeDelivered(idItemPeopleInTable: string ) {
+async function makeRegistered(orderNumberID: string) {
+	console.log(orderNumberID)
 	try {
-		const  makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items/${idItemPeopleInTable}?makeDelivered`);
-		return  makeDelivered;
+		const makeDelivered = await axios.post(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items/${orderNumberID}?makeRegistered`);
+		return makeDelivered;
 	} catch (err) {
 		console.log(err);
 	}
@@ -57,7 +58,7 @@ async function updateTableNumberNotCall(tableID: string | undefined) {
 export {
 	fetchOrderItem,
 	fetchTablesActive,
-	makeDelivered,
+	makeRegistered,
 	updateTableNumberDesactive,
 	updateTableNumberNotCall
 };
