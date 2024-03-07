@@ -55,7 +55,7 @@ const HomePage = () => {
   return (
     <div className={styles.container}>
       <AdminOrdersActives />
-      {/*     <AdminTablesActives /> */}
+      <AdminTablesActives />
     </div>
   );
 };
