@@ -3,8 +3,11 @@ import axios from 'axios';
 
 async function fetchOrderItem() {
 	try {
-		const response = await axios.get(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?allOrdersInProcess`);
-		return response.data;
+		const response = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?allOrdersInProcess`,
+			{ cache: 'no-store' });
+		const data = await response.json()
+
+		return data
 
 	} catch (err) {
 		console.log(err);

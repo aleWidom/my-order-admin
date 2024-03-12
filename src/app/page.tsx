@@ -14,17 +14,25 @@ const HomePage = () => {
 
 
   useEffect(() => {
-    //Busco todas las ordenes que no esten entregadas
-    fetchOrderItem()
-      .then((data) => {
-        if (data !== undefined) {
-          console.log(data)
-          setAllOrders(data);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      })
+    const fetchDataAndSetTimeout = () => {
+      //Busco todas las ordenes que no esten entregadas
+      fetchOrderItem()
+        .then((data) => {
+          if (data !== undefined) {
+            console.log(data)
+            setAllOrders(data);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => {
+          setTimeout(fetchDataAndSetTimeout, 2000); // Llama a la función recursivamente después de 5 segundos
+        });
+    };
+
+    // Llama a fetchDataAndSetTimeout por primera vez
+    fetchDataAndSetTimeout();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
