@@ -10,14 +10,14 @@ export const AdminOrdersActives = () => {
 
     return (
         <>
-            <h1 className={styles.header}>Ordenes Recibidas</h1>
+            <h2 className={styles.header}>Ordenes Recibidas</h2>
             <div className={styles.container}>
-                {allOrders?.length > 0 ? 
-                 allOrders.map((order, i)=> (
-                    <Order key={i} order={order} />
-                 ))
-                : 
-                <p>No hay ordenes pendientes de ninguna mesa en este momento.</p>}
+                {allOrders?.length > 0 ?
+                    allOrders.map((order, i) => (
+                        <Order key={i} order={order} />
+                    ))
+                    :
+                    <p>No hay ordenes pendientes de ninguna mesa en este momento.</p>}
             </div>
         </>
     )

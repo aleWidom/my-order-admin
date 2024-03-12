@@ -1,4 +1,5 @@
 export interface TableRestaurant {
+	PeopleInTableID: string;
 	TableID: string;
 	table_number: string;
 	table_active: string;
@@ -11,12 +12,12 @@ export interface OrderInProcess {
 	id_peopleInTable?: string;
 	date?: string;
 	details: ItemMenuInProcess[];
-} 
+}
 
 export interface ItemMenuInProcess {
 	id_item: string;
 	quantity: string;
 	ItemPeopleInTableID: string;
-    title: string; 
+	title: string;
 }
 

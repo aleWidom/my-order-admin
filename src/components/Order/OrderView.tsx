@@ -21,6 +21,7 @@ export const OrderView = ({ order }: OrderViewProps) => {
               if (data !== undefined) {
                 setAllOrders(data);
               }
+              alert(`Mesa ${order.numberTable}. ${order.title}, Cantidad: ${order.quantity}u. Registrado correctamente:`)
             })
             .catch((err) => {
               console.log(err)
@@ -48,6 +49,14 @@ export const OrderView = ({ order }: OrderViewProps) => {
   return (
     <div className={styles.containerOrder}>
       <h2 className={styles.table}>Mesa {order.numberTable}</h2>
+      <div className={styles.table}>
+        <h4>ID Orden:</h4>
+        <p> {order.OrderNumberID}</p>
+      </div>
+      <div className={styles.table}>
+        <h4>ID Mesa PeopleInTable:</h4>
+        <p> {order.id_peopleInTable}</p>
+      </div>
       <p className={styles.title}>{order.title}</p>
       <p>Cantidad: {order.quantity}</p>
       <button onClick={handleClickRegister(order.OrderNumberID)} className={styles.buttonRegisterItemOrder}>Registrar.</button>

@@ -1,0 +1,20 @@
+.conteinerDeactivate {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 12px;
+    gap: 12px;
+}
+
+.button {
+    border: none;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.button:hover {
+    cursor: pointer;
+}

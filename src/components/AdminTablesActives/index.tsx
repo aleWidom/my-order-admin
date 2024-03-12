@@ -1,52 +1,36 @@
 import { useContext } from "react";
-import { AdminContext, /* SearchContext */ } from "@/context/AdminContext";
+import { AdminContext } from "@/context/AdminContext";
 import styles from './AdminTablesActives.module.scss'
-import { updateTableNumberDesactive, updateTableNumberNotCall } from "@/services";
-/* import { ModalInfo } from "../ModalInfo"; */
+import { updateTableNumberDesactive } from "@/services";
 
 export const AdminTablesActives = () => {
 
-/*   const { modalInfo, setModalInfo } = useContext(SearchContext); */
-
   const { tablesRestaurantActives } = useContext(AdminContext);
 
-  /* const numberTable = JSON.parse(localStorage.getItem('table') as any) */
+  const handleDesactivate = (peopleInTableID: string, tableNumber: string) => () => {
+    updateTableNumberDesactive(peopleInTableID, tableNumber)
 
-  const handleDesactivate = (tableID: string) => () => {
-  updateTableNumberDesactive(tableID);  
-
-  /*   setModalInfo({
-      state: true,
-      description: `La mesa ${numberTable} ha sido desactivada`,
-      section: 'admin',
-    });  */
   };
-  
-  const handleCancelCall = (tableID: string) => () => {
-    updateTableNumberNotCall(tableID);  
-   /*   setModalInfo({
-      state: true,
-      description: `La mesa ${numberTable} ha sido desactivada`,
-      section: 'admin',
-    });  */
-    };
+
 
 
   return (
     <>
+      <h2 className={styles.header}>Mesas Activas</h2>
       <div className={styles.container}>
-        <h1 className={styles.header}>Mesas Activas</h1>
         {tablesRestaurantActives?.length > 0 ?
-          tablesRestaurantActives.map((table) => (
-            <div key={table.table_number} className={styles.containerTable}>
-              <h4 className={styles.numberTable}>Mesa: {table.table_number}</h4>
-              {table.table_call === '1' && <button onClick={handleCancelCall(table.TableID)}>Cancelar llamado</button>}
-              <button onClick={handleDesactivate(table.TableID)}>Desactivar mesa</button>
+          tablesRestaurantActives.map((table, i) => (
+            <div key={i} className={styles.containerTable}>
+              <h2 className={styles.numberTable}>Mesa {table.table_number}</h2>
+              <div className={styles.table}>
+                <h4>ID Mesa PeopleInTable:</h4>
+                <p>{table.PeopleInTableID}</p>
+              </div>
+              <button onClick={handleDesactivate(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
             </div>
           )) :
           <p>No hay llamadas de ninguna mesa en este momento.</p>}
       </div>
-   {/*    {modalInfo.section === 'admin' && <ModalInfo />} */}
     </>
   )
 }

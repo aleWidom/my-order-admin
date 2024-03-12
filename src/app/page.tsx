@@ -3,10 +3,13 @@ import { useContext, useEffect } from "react";
 import {
   AdminOrdersActives,
   AdminTablesActives,
-} from "@/components/index";
+  DeactiveTables
+} from "@/components";
 import { AdminContext } from "@/context/AdminContext";
 import { fetchOrderItem, fetchTablesActive } from "@/services/admin";
 import styles from './page.module.scss'
+
+
 
 const HomePage = () => {
 
@@ -19,7 +22,6 @@ const HomePage = () => {
       fetchOrderItem()
         .then((data) => {
           if (data !== undefined) {
-            console.log(data)
             setAllOrders(data);
           }
         })
@@ -39,16 +41,24 @@ const HomePage = () => {
 
 
   useEffect(() => {
-    //Busco las mesas activas
-    fetchTablesActive()
-      .then((data) => {
-        if (data != undefined) {
-          setTablesRestaurantActives(data);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    const fetchTableActiveAndSetTimeout = () => {
+      //Busco las mesas activas
+      fetchTablesActive()
+        .then((data) => {
+          if (data != undefined) {
+            console.log(data)
+            setTablesRestaurantActives(data);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => {
+          setTimeout(fetchTableActiveAndSetTimeout, 2000); // Llama a la función recursivamente después de 5 segundos
+        });
+    }
+
+    fetchTableActiveAndSetTimeout();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -56,6 +66,7 @@ const HomePage = () => {
     <div className={styles.container}>
       <AdminOrdersActives />
       <AdminTablesActives />
+      <DeactiveTables />
     </div>
   );
 };

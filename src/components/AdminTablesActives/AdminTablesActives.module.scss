@@ -1,20 +1,52 @@
 @import '../../styles/utils';
 
 .container {
-	padding: 2rem;
-	background-color: $color-secondary;
-	min-height: 100vh;
-	color: $color-primary;
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: rgb(53, 144, 61);
+	color: $color-secondary;
+	text-align: center;
+	gap: 0.5rem;
 }
 
 .header {
 	font-size: 1.5rem;
+	color: $color-secondary;
+	text-align: center;
+	padding: 12px;
+	background-color: rgb(53, 144, 61);
 }
 
 .containerTable {
 	display: flex;
+	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 	border-bottom: solid 1px $color-secondary;
 	margin-top: 1rem;
+	border: solid white;
+	padding: 1rem;
+	gap: 12px;
+}
+
+.button {
+	border: none;
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+@media (min-width: 768px) {
+	.container {
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
 }
