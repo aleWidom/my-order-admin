@@ -7,8 +7,8 @@ export const AdminTablesActives = () => {
 
   const { tablesRestaurantActives } = useContext(AdminContext);
 
-  const handleDesactivate = (peopleInTableID: string, tableNumber: string) => () => {
-    updateTableNumberDesactive(peopleInTableID, tableNumber)
+  const handleDesactivate = (peopleInTableID: string) => () => {
+    updateTableNumberDesactive(peopleInTableID)
 
   };
 
@@ -26,7 +26,7 @@ export const AdminTablesActives = () => {
                 <h4>ID Mesa PeopleInTable:</h4>
                 <p>{table.PeopleInTableID}</p>
               </div>
-              <button onClick={handleDesactivate(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
+              <button onClick={handleDesactivate(table.PeopleInTableID)} className={styles.button}>Desactivar mesa.</button>
             </div>
           )) :
           <p>No hay llamadas de ninguna mesa en este momento.</p>}
