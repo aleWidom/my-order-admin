@@ -1,13 +1,12 @@
 @import '../../styles/utils';
 
 .container {
-	padding: 12px;
-	background-color: #272727;
 	color: $color-secondary;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	text-align: center;
+	margin: 16px 0px;
 }
 
 .containerOrder {
@@ -20,15 +19,12 @@
 	border: solid;
 	text-align: center;
 	gap: 0.5rem;
-	padding: 1rem;
 }
 
 .header {
 	font-size: 1.5rem;
 	color: $color-secondary;
 	text-align: center;
-	padding: 12px;
-	background-color: #272727;
 }
 
 .title {
@@ -42,7 +38,6 @@
 .table {
 	background-color: $color-secondary;
 	color: $color-primary;
-	padding: 0.5rem;
 }
 
 .button {

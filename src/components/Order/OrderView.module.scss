@@ -1,14 +1,13 @@
 @import '../../styles/config';
 
 .containerOrder {
-    border: solid;
+    border: solid 5px #a3ffaa;
     padding: 1rem;
     margin: 0.5rem;
 }
 
 .table {
-    background-color: $color-secondary;
-    color: $color-primary;
+    color: #a3ffaa;
     padding: 0.5rem;
 }
 
@@ -22,6 +21,7 @@
     border: none;
     padding: 0.5rem;
     margin-top: 0.5rem;
+    background-color: #a3ffaa;
 }
 
 .buttonRegisterItemOrder:hover {

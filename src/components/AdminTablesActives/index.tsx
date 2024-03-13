@@ -1,11 +1,17 @@
-import { useContext } from "react";
-import { AdminContext } from "@/context/AdminContext";
-import styles from './AdminTablesActives.module.scss'
+
 import { updateTableNumberDesactive } from "@/services";
+import styles from './AdminTablesActives.module.scss'
+import { TableRestaurant } from "@/interfaces/interfaces";
 
-export const AdminTablesActives = () => {
 
-  const { tablesRestaurantActives } = useContext(AdminContext);
+interface AdminTablesActivesProps {
+  tablesRestaurantActives: TableRestaurant[]
+}
+
+
+export const AdminTablesActives = ({ tablesRestaurantActives }: AdminTablesActivesProps) => {
+
+
 
   const handleDesactivate = (peopleInTableID: string) => () => {
     updateTableNumberDesactive(peopleInTableID)

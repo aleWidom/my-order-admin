@@ -67,6 +67,7 @@ async function updateTableNumberNotCall(tableID: string | undefined) {
 
 async function resetAllTables() {
 	try {
+		alert("Ha desactivado todas las mesas correctamente.")
 		const response = await fetch(
 			`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?resetAllTables`, { cache: 'no-store' }
 		);
@@ -74,6 +75,7 @@ async function resetAllTables() {
 
 		return data
 	} catch (err) {
+		alert("Ocurrio un error. Vuelva a intentarlo.")
 		console.log(err);
 	}
 }

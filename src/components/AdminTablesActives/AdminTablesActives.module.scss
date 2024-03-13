@@ -6,7 +6,6 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	background-color: rgb(53, 144, 61);
 	color: $color-secondary;
 	text-align: center;
 	gap: 0.5rem;
@@ -16,8 +15,6 @@
 	font-size: 1.5rem;
 	color: $color-secondary;
 	text-align: center;
-	padding: 12px;
-	background-color: rgb(53, 144, 61);
 }
 
 .containerTable {
@@ -27,15 +24,21 @@
 	align-items: center;
 	border-bottom: solid 1px $color-secondary;
 	margin-top: 1rem;
-	border: solid white;
+	border: solid #f5e8ae 5px;
 	padding: 1rem;
-	gap: 12px;
 }
+
+.numberTable {
+	color: #f5e8ae;
+	padding: 0.5rem;
+}
+
 
 .button {
 	border: none;
 	padding: 0.5rem;
 	margin-top: 0.5rem;
+	background-color: #f5e8ae;
 }
 
 .button:hover {

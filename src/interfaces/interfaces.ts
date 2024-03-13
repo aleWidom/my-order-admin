@@ -1,6 +1,6 @@
 export interface TableRestaurant {
 	PeopleInTableID: string;
-	TableID: string;
+	id_table: string;
 	table_number: string;
 	table_active: string;
 	table_call: string;
