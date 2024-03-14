@@ -11,8 +11,6 @@ interface AdminTablesActivesProps {
 
 export const AdminTablesActives = ({ tablesRestaurantActives }: AdminTablesActivesProps) => {
 
-
-
   const handleDesactivate = (peopleInTableID: string) => () => {
     updateTableNumberDesactive(peopleInTableID)
 

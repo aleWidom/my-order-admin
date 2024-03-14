@@ -80,13 +80,25 @@ async function resetAllTables() {
 	}
 }
 
+async function peopleInTableDischarge(peopleInTable: string) {
+	try {
+		const response = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?peopleInTableDischarge=${peopleInTable}`, { cache: 'no-store' });
+		const data = await response.json()
+
+		return data
+	} catch (err) {
+		console.log(err);
+	}
+}
+
 export {
 	fetchOrderItem,
 	fetchTablesActive,
 	makeRegistered,
 	updateTableNumberDesactive,
 	updateTableNumberNotCall,
-	resetAllTables
+	resetAllTables,
+	peopleInTableDischarge
 };
 
 

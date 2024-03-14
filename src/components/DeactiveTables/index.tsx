@@ -13,10 +13,13 @@ export const DeactiveTables = () => {
     }
 
     return (
-        <div className={styles.conteinerDeactivate}>
-            <h2 className={styles.title} >Desactivar todas las mesas.</h2>
-            <button className={styles.button} onClick={handleReset}>Desactivar todas las mesas.</button>
-        </div>
+        <>
+            <h2 className={styles.header} >Desactivar todas las mesas</h2>
+            <div className={styles.conteinerDeactivate}>
+                <h2 className={styles.title} >Desactivar * mesas.</h2>
+                <button className={styles.button} onClick={handleReset}>Desactivar todas las mesas.</button>
+            </div>
+        </>
     )
 }
 

@@ -1,3 +1,5 @@
+@import '../../styles/config';
+
 .conteinerDeactivate {
     padding: 12px;
     text-align: center;
@@ -17,5 +19,27 @@
 }
 
 .title {
+    margin-top: 16px;
+    text-align: center;
     color: rgb(255, 115, 115);
+}
+
+.header {
+    font-size: 1.5rem;
+    color: $color-secondary;
+    text-align: center;
+    background-color: rgb(255, 115, 115);
+    color: $color-primary;
+    width: 100%;
+    margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
 }

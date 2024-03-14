@@ -16,8 +16,6 @@ const HomePage = () => {
 
   const { tablesRestaurantActives, setTablesRestaurantActives, setAllOrders } = useContext(AdminContext);
 
-  console.log(tablesRestaurantActives)
-
   useEffect(() => {
     const fetchDataAndSetTimeout = () => {
       //Busco todas las ordenes que no esten entregadas

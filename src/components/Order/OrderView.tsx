@@ -34,15 +34,15 @@ export const OrderView = ({ order }: OrderViewProps) => {
       });
 
     //vuelvo a buscar las ordenes que están pedidas pero no entregadas
-    fetchOrderItem()
-      .then((data) => {
-        if (data !== undefined) {
-          setAllOrders(data);
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    /*   fetchOrderItem()
+        .then((data) => {
+          if (data !== undefined) {
+            setAllOrders(data);
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        }) */
   }
 
 
