@@ -4,11 +4,12 @@
 	padding: 12px;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	color: $color-secondary;
 	text-align: center;
 	gap: 0.5rem;
+	width: 100%;
 }
 
 .header {
@@ -51,9 +52,11 @@
 @media (min-width: 768px) {
 	.container {
 		flex-direction: row;
-		justify-content: center;
-		align-items: flex-start;
-		width: 24%;
+		flex-wrap: wrap;
+	}
+
+	.containerTable {
+		width: 22%;
 	}
 
 }

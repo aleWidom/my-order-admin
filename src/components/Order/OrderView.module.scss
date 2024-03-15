@@ -2,8 +2,13 @@
 
 .containerOrder {
     border: solid 5px #a3ffaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     margin: 0.5rem;
+    height: 350px;
 }
 
 .table {
@@ -26,4 +31,10 @@
 
 .buttonRegisterItemOrder:hover {
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .containerOrder {
+        width: 22%;
+    }
 }
