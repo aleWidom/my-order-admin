@@ -1,3 +1,4 @@
+import { OrderInProcess } from '@/interfaces/interfaces';
 import axios from 'axios';
 
 
@@ -39,17 +40,28 @@ async function makeRegistered(orderNumberID: string) {
 }
 
 
-async function updateTableNumberDesactive(peopleInTableID: string) {
+async function updateTableNumberDesactive(peopleInTableID: string, numberTable: string, allOrders: OrderInProcess[]) {
 	try {
-		alert("Desactivado correctamente")
-		const response = await fetch(
-			/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, { cache: 'no-store' }
-		);
-		const data = await response.json()
+		alert(`Mesa ${numberTable} desactivada correctamente.`)
 
-		return data
+		if (allOrders.length) {
+			const response = await fetch(
+				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, { cache: 'no-store' }
+			);
+			const data = await response.json()
+
+			return data
+		} else {
+			const response = await fetch(
+				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, { cache: 'no-store' }
+			);
+			const data = await response.json()
+
+			return data
+		}
+
 	} catch (err) {
-		alert("Error vuelva a intentarlo")
+		alert("Error vuelva a intentarlo.")
 		console.log(err);
 	}
 }

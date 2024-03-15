@@ -14,7 +14,7 @@ import styles from './page.module.scss'
 
 const HomePage = () => {
 
-  const { tablesRestaurantActives, setTablesRestaurantActives, setAllOrders } = useContext(AdminContext);
+  const { tablesRestaurantActives, setTablesRestaurantActives, allOrders, setAllOrders } = useContext(AdminContext);
 
   useEffect(() => {
     const fetchDataAndSetTimeout = () => {
@@ -46,7 +46,6 @@ const HomePage = () => {
       fetchTablesActive()
         .then((data) => {
           if (data != undefined) {
-            console.log(data)
             setTablesRestaurantActives(data);
           }
         })
@@ -65,8 +64,8 @@ const HomePage = () => {
   return (
     <div className={styles.container}>
       <AdminOrdersActives />
-      <AdminTablesActives tablesRestaurantActives={tablesRestaurantActives} />
-      {tablesRestaurantActives.length ? <DeactiveTables /> : ""}
+      <AdminTablesActives tablesRestaurantActives={tablesRestaurantActives} allOrders={allOrders} />
+      {/*      {tablesRestaurantActives.length ? <DeactiveTables /> : ""} */}
     </div>
   );
 };

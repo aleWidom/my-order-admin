@@ -1,19 +1,19 @@
 
 import { updateTableNumberDesactive } from "@/services";
 import styles from './AdminTablesActives.module.scss'
-import { TableRestaurant } from "@/interfaces/interfaces";
+import { OrderInProcess, TableRestaurant } from "@/interfaces/interfaces";
 
 
 interface AdminTablesActivesProps {
-  tablesRestaurantActives: TableRestaurant[]
+  tablesRestaurantActives: TableRestaurant[],
+  allOrders: OrderInProcess[]
 }
 
 
-export const AdminTablesActives = ({ tablesRestaurantActives }: AdminTablesActivesProps) => {
+export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: AdminTablesActivesProps) => {
 
-  const handleDesactivate = (peopleInTableID: string) => () => {
-    updateTableNumberDesactive(peopleInTableID)
-
+  const handleDesactivate = (peopleInTableID: string, numberTable: string) => () => {
+    updateTableNumberDesactive(peopleInTableID, numberTable, allOrders)
   };
 
 
@@ -30,7 +30,7 @@ export const AdminTablesActives = ({ tablesRestaurantActives }: AdminTablesActiv
                 <h4>ID Mesa PeopleInTable:</h4>
                 <p>{table.PeopleInTableID}</p>
               </div>
-              <button onClick={handleDesactivate(table.PeopleInTableID)} className={styles.button}>Desactivar mesa.</button>
+              <button onClick={handleDesactivate(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
             </div>
           )) :
           <p>No hay llamadas de ninguna mesa en este momento.</p>}
