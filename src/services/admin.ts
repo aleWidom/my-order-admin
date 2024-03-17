@@ -46,6 +46,7 @@ async function updateTableNumberDesactive(peopleInTableID: string, numberTable: 
 
 		if (allOrders.length) {
 			const response = await fetch(
+			
 				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, { cache: 'no-store' }
 			);
 			const data = await response.json()
@@ -53,6 +54,7 @@ async function updateTableNumberDesactive(peopleInTableID: string, numberTable: 
 			return data
 		} else {
 			const response = await fetch(
+				
 				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, { cache: 'no-store' }
 			);
 			const data = await response.json()
