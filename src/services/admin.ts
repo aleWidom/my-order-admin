@@ -40,22 +40,22 @@ async function makeRegistered(orderNumberID: string) {
 }
 
 
-async function updateTableNumberDesactive(peopleInTableID: string, numberTable: string, allOrders: OrderInProcess[]) {
+async function updateTableNumberDesactiveTable(peopleInTableID: string, numberTable: string, allOrders: OrderInProcess[]) {
 	try {
 		alert(`Mesa ${numberTable} desactivada correctamente.`)
 
 		if (allOrders.length) {
 			const response = await fetch(
-			
-				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, { cache: 'no-store' }
+
+				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, /* { cache: 'no-store' } */
 			);
 			const data = await response.json()
 
 			return data
 		} else {
 			const response = await fetch(
-				
-				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, { cache: 'no-store' }
+
+				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, /* { cache: 'no-store' } */
 			);
 			const data = await response.json()
 
@@ -68,13 +68,16 @@ async function updateTableNumberDesactive(peopleInTableID: string, numberTable: 
 	}
 }
 
+
 async function updateTableNumberNotCall(tableID: string | undefined) {
+	alert(`Se ha cancelado correctamente el llamado de la Mesa: ${tableID}`)
 	try {
 		const response = await axios.put(
 			/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/?notCall=${tableID}`
 		);
 		return response.data;
 	} catch (err) {
+		alert("Ocurrio un error. Vuelva a intentarlo.")
 		console.log(err);
 	}
 }
@@ -109,7 +112,7 @@ export {
 	fetchOrderItem,
 	fetchTablesActive,
 	makeRegistered,
-	updateTableNumberDesactive,
+	updateTableNumberDesactiveTable,
 	updateTableNumberNotCall,
 	resetAllTables,
 	peopleInTableDischarge

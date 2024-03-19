@@ -1,5 +1,5 @@
 
-import { updateTableNumberDesactive } from "@/services";
+import { updateTableNumberDesactiveTable, updateTableNumberNotCall } from "@/services";
 import styles from './AdminTablesActives.module.scss'
 import { OrderInProcess, TableRestaurant } from "@/interfaces/interfaces";
 
@@ -12,10 +12,15 @@ interface AdminTablesActivesProps {
 
 export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: AdminTablesActivesProps) => {
 
-  const handleDesactivate = (peopleInTableID: string, numberTable: string) => () => {
-    updateTableNumberDesactive(peopleInTableID, numberTable, allOrders)
+  const handleDesactivateTable = (peopleInTableID: string, numberTable: string) => () => {
+    updateTableNumberDesactiveTable(peopleInTableID, numberTable, allOrders)
   };
 
+  const handleDesactivateCall = (numberTable: string) => () => {
+    updateTableNumberNotCall(numberTable)
+  };
+
+  console.log(tablesRestaurantActives)
 
 
   return (
@@ -30,11 +35,12 @@ export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: Admin
                 <h4>ID Mesa PeopleInTable:</h4>
                 <p>{table.PeopleInTableID}</p>
               </div>
-              <button onClick={handleDesactivate(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
+              {table.table_call === "1" && <button className={styles.buttonDesactivateCall} onClick={handleDesactivateCall(table.id_table)}>Desactivar llamado mesa.</button>}
+              <button onClick={handleDesactivateTable(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
             </div>
           )) :
-          <p>No hay llamadas de ninguna mesa en este momento.</p>}
+          <p>No hay mesas activas en este momento.</p>}
       </div>
     </>
   )
-}
+}	

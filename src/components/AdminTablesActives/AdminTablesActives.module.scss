@@ -43,10 +43,19 @@
 	border: none;
 	padding: 0.5rem;
 	margin-top: 0.5rem;
-	background-color: #f5e8ae;
+	background-color: #f5afae;
+
 }
 
-.button:hover {
+.buttonDesactivateCall {
+	border: none;
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	background-color: #fdd49c;
+}
+
+.button,
+.buttonDesactivateCall:hover {
 	cursor: pointer;
 }
 
