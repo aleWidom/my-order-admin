@@ -16,12 +16,9 @@ export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: Admin
     updateTableNumberDesactiveTable(peopleInTableID, numberTable, allOrders)
   };
 
-  const handleDesactivateCall = (numberTable: string) => () => {
-    updateTableNumberNotCall(numberTable)
+  const handleDesactivateCall = (idTable: string, numberTable: string) => () => {
+    updateTableNumberNotCall(idTable, numberTable)
   };
-
-  console.log(tablesRestaurantActives)
-
 
   return (
     <>
@@ -35,7 +32,7 @@ export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: Admin
                 <h4>ID Mesa PeopleInTable:</h4>
                 <p>{table.PeopleInTableID}</p>
               </div>
-              {table.table_call === "1" && <button className={styles.buttonDesactivateCall} onClick={handleDesactivateCall(table.id_table)}>Desactivar llamado mesa.</button>}
+              {table.table_call === "1" && <button className={styles.buttonDesactivateCall} onClick={handleDesactivateCall(table.id_table, table.table_number)}>Desactivar llamado mesa.</button>}
               <button onClick={handleDesactivateTable(table.PeopleInTableID, table.table_number)} className={styles.button}>Desactivar mesa.</button>
             </div>
           )) :

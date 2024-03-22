@@ -69,8 +69,8 @@ async function updateTableNumberDesactiveTable(peopleInTableID: string, numberTa
 }
 
 
-async function updateTableNumberNotCall(tableID: string | undefined) {
-	alert(`Se ha cancelado correctamente el llamado de la Mesa: ${tableID}`)
+async function updateTableNumberNotCall(tableID: string | undefined, numberTable: string) {
+	alert(`Se ha cancelado correctamente el llamado de la Mesa: ${numberTable}`)
 	try {
 		const response = await axios.put(
 			/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/?notCall=${tableID}`
