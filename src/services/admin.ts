@@ -4,7 +4,7 @@ import axios from 'axios';
 
 async function fetchOrderItem() {
 	try {
-		const response = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?allOrdersInProcess`,
+		const response = await fetch(`https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables?allOrdersInProcess`,
 			{ cache: 'no-store' });
 		const data = await response.json()
 
@@ -17,7 +17,7 @@ async function fetchOrderItem() {
 
 async function fetchTablesActive() {
 	try {
-		const response = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?active`, { cache: 'no-store' });
+		const response = await fetch(`https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables?active`, { cache: 'no-store' });
 		const data = await response.json()
 
 		return data
@@ -29,7 +29,7 @@ async function fetchTablesActive() {
 
 async function makeRegistered(orderNumberID: string) {
 	try {
-		const makeDelivered = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/items/${orderNumberID}?makeRegistered`,
+		const makeDelivered = await fetch(`https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/items/${orderNumberID}?makeRegistered`,
 			{ cache: 'no-store' });
 		const data = await makeDelivered.json()
 
@@ -47,7 +47,7 @@ async function updateTableNumberDesactiveTable(peopleInTableID: string, numberTa
 		if (allOrders.length) {
 			const response = await fetch(
 
-				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, /* { cache: 'no-store' } */
+				/*or get*/ `https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivate`, /* { cache: 'no-store' } */
 			);
 			const data = await response.json()
 
@@ -55,7 +55,7 @@ async function updateTableNumberDesactiveTable(peopleInTableID: string, numberTa
 		} else {
 			const response = await fetch(
 
-				/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, /* { cache: 'no-store' } */
+				/*or get*/ `https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables/${peopleInTableID}?desactivateWihtOutOrder`, /* { cache: 'no-store' } */
 			);
 			const data = await response.json()
 
@@ -73,7 +73,7 @@ async function updateTableNumberNotCall(tableID: string | undefined, numberTable
 	alert(`Se ha cancelado correctamente el llamado de la Mesa: ${numberTable}`)
 	try {
 		const response = await axios.put(
-			/*or get*/ `https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables/?notCall=${tableID}`
+			/*or get*/ `https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables/?notCall=${tableID}`
 		);
 		return response.data;
 	} catch (err) {
@@ -86,7 +86,7 @@ async function resetAllTables() {
 	try {
 		alert("Ha desactivado todas las mesas correctamente.")
 		const response = await fetch(
-			`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?resetAllTables`, { cache: 'no-store' }
+			`https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables?resetAllTables`, { cache: 'no-store' }
 		);
 		const data = await response.json()
 
@@ -99,7 +99,7 @@ async function resetAllTables() {
 
 async function peopleInTableDischarge(peopleInTable: string) {
 	try {
-		const response = await fetch(`https://wt15fjaub7.execute-api.us-east-1.amazonaws.com/dev/tables?peopleInTableDischarge=${peopleInTable}`, { cache: 'no-store' });
+		const response = await fetch(`https://cwg24mdbt9.execute-api.us-east-1.amazonaws.com/dev/tables?peopleInTableDischarge=${peopleInTable}`, { cache: 'no-store' });
 		const data = await response.json()
 
 		return data
