@@ -9,6 +9,7 @@ interface AdminTablesActivesProps {
   allOrders: OrderInProcess[]
 }
 
+console.log("admin")
 
 export const AdminTablesActives = ({ tablesRestaurantActives, allOrders }: AdminTablesActivesProps) => {
 
